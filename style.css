@@ -13,6 +13,11 @@ body {
   margin: 0 auto;
 } 
 
+.header {
+  font-size: 1em;
+  padding-bottom: 2em;
+
+}
 .section {
   display: flex;
   align-items: center;
@@ -72,4 +77,40 @@ button {
 
 button:focus {
   outline: none;
+}
+
+.log {
+  flex-direction: column-reverse;
+  height: auto;
+}
+
+.actions {
+  width: 80%;
+  min-width: 80%;
+  text-align: center;
+  color: white;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  border-radius: 10px;
+}
+.monster-action {
+  background-color: #e24f34;
+  margin-bottom: 0.8em;
+}
+
+.player-action {
+  background-color: #2e369b;
+}
+
+
+@media only screen and (max-width: 680px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+  }
 }
