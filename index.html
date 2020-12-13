@@ -28,14 +28,19 @@
       <span>100%</span>
     </div>
    </header>
-   <div v-if="true" class="section controls">
+   <div 
+    v-if="!started"
+    @click="started = !started" 
+    class="section controls">
     <button class="start">INICIAR JOGO</button>
    </div>
    <div v-else class="section controls">
       <button class='attack'>ATAQUE</button>
       <button class='special-attack'>ATAQUE ESPECIAL</button>
       <button class='heal'>CURAR</button>
-      <button class='resign'>DESISTIR</button>
+      <button
+      @click="started = !started" 
+      class='resign'>DESISTIR</button>
    </div>
 
    <section class='section log'>
