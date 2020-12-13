@@ -82,6 +82,7 @@ button:focus {
 .log {
   flex-direction: column-reverse;
   height: auto;
+  padding: 2em 0;
 }
 
 .actions {
