@@ -49,6 +49,11 @@ body {
   height: 30px
 }
 
+.start {
+  background-color: #852e9b;
+  color: white;
+}
+
 .controls {
   height: 10vh;
 }

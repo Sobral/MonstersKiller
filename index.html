@@ -28,7 +28,10 @@
       <span>100%</span>
     </div>
    </header>
-   <div class="section controls">
+   <div v-if="true" class="section controls">
+    <button class="start">INICIAR JOGO</button>
+   </div>
+   <div v-else class="section controls">
       <button class='attack'>ATAQUE</button>
       <button class='special-attack'>ATAQUE ESPECIAL</button>
       <button class='heal'>CURAR</button>
