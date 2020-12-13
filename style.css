@@ -1,20 +1,23 @@
 .container {
   display: flex;
   justify-content: center;
-
-  width: 100%;
+  
+  width: 100vw;
   max-width: 975px;
   margin: 0 auto;
 }
 
 header {
   width: 100%;
-  max-width: 800px;
+  max-width: 90vw;
+  height: 30vh;
   display: flex;
   flex-direction: row;
+    align-items: center;
   justify-content: space-around;
 
-  box-shadow: 2px;
+  box-shadow: 3px 3px 5px 6px #ccc;
+
 
 }
 
