@@ -28,6 +28,8 @@ body {
   max-width: 90vw;
   height: 20vh;
   box-shadow: 3px 3px 5px 6px #ccc;
+  border-radius: 10px;
+
 }
 
 .jogador {
@@ -37,9 +39,8 @@ body {
 }
 
 .barra {
-  width: 300px;
   height: 30px;
-  max-height: 200px;
+  max-width: 300px;
   border: 1px solid
 }
 
@@ -76,7 +77,7 @@ body {
 
 button {
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
   height: 2em;
 }
 

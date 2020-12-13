@@ -13,19 +13,19 @@
    <header class="section header">
      <div class="jogador">
        <h1>Jogador</h1>
-       <div class="barra">
-         <div class="vida"></div>
+       <div class="barra" :style="maxHealth">
+         <div class="vida" :style="currentPlayerHealth"></div>
        </div>
-       <span>100%</span>
+       <span>{{playerHealth}}%</span>
      </div>
      <div class="jogador">
 
 
       <h1>Monstro</h1>
-      <div class="barra">
-        <div class="vida"></div>
+      <div class="barra" :style="maxHealth">
+        <div class="vida" :style="currentMonsterHealth"></div>
       </div>
-      <span>100%</span>
+      <span>{{monsterHealth}}%</span>
     </div>
    </header>
    <div 
