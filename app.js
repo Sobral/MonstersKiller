@@ -15,8 +15,28 @@ new Vue({
     return {
       started: false,
       baseHealth: 100,
-      playerHealth: 100,
-      monsterHealth: 100
+      playerHealth: 10,
+      monsterHealth: 20,
+      log: [
+        {
+          player: {
+            acao: 'Atacou',
+            pontos: 12
+          },
+          monstro: {
+            acao: 'Atacou',
+            pontos: 12
+          }
+        }
+      ]
     }
+  },
+  methods: {
+    start() {
+      this.started = true;
+      this.playerHealth = 100;
+      this.monsterHealth = 100;
+      this.log = [];
+    },
   }
 });

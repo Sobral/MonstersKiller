@@ -30,7 +30,7 @@
    </header>
    <div 
     v-if="!started"
-    @click="started = !started" 
+    @click="start" 
     class="section controls">
     <button class="start">INICIAR JOGO</button>
    </div>
@@ -43,24 +43,12 @@
       class='resign'>DESISTIR</button>
    </div>
 
-   <section class='section log'>
-     <div class="actions">
-       <p class='monster-action'>MONSTRO ATINGIU JOGADOR COM 12.</p>
-       <p class='player-action'>JOGADOR ATINGIU MONSTRO COM 12.</p>
+   <section v-show="log.length > 0" class='section log'>
+     <div v-for="(actor, index) in log" :key="index" class="actions">
+       <p class='monster-action'>Monstro {{actor.monstro.acao}} jogador com {{actor.monstro.pontos}} pontos</p>
+       <p class='player-action'>Jogador {{actor.player.acao}} monstro com {{actor.player.pontos}} pontos</p>
      </div>
 
-     <div class="actions">
-      <p class='monster-action'>MONSTRO ATINGIU JOGADOR COM 12.</p>
-      <p class='player-action'>JOGADOR ATINGIU MONSTRO COM 12.</p>
-    </div>
-    <div class="actions">
-      <p class='monster-action'>MONSTRO ATINGIU JOGADOR COM 12.</p>
-      <p class='player-action'>JOGADOR ATINGIU MONSTRO COM 12.</p>
-    </div>
-    <div class="actions">
-      <p class='monster-action'>MONSTRO ATINGIU JOGADOR COM 15.</p>
-      <p class='player-action'>JOGADOR ATINGIU MONSTRO COM 12.</p>
-    </div>
    </section>
 
   </div>
