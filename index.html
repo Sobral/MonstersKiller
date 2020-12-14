@@ -35,7 +35,7 @@
     <button class="start">INICIAR JOGO</button>
    </div>
    <div v-else class="section controls">
-      <button class='attack'>ATAQUE</button>
+      <button @click="attack" class='attack'>ATAQUE</button>
       <button class='special-attack'>ATAQUE ESPECIAL</button>
       <button class='heal'>CURAR</button>
       <button
@@ -44,9 +44,9 @@
    </div>
 
    <section v-show="log.length > 0" class='section log'>
-     <div v-for="(actor, index) in log" :key="index" class="actions">
-       <p class='monster-action'>Monstro {{actor.monstro.acao}} jogador com {{actor.monstro.pontos}} pontos</p>
-       <p class='player-action'>Jogador {{actor.player.acao}} monstro com {{actor.player.pontos}} pontos</p>
+     <div v-for="(message, index) in log" :key="index" class="actions">
+       <p class='monster-action'>{{message.monster}}</p>
+       <p class='player-action'>{{message.player}}</p>
      </div>
 
    </section>
