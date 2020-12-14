@@ -9,16 +9,21 @@ new Vue({
     },
     currentMonsterHealth() {
       return `width: ${this.monsterHealth * 3}px`;
+    },
+    vitoria() {
+      return this.playerHealth > 0 && this.monsterHealth <= 0;
+    },
+    finished() {
+      return this.playerHealth <= 0 || this.monsterHealth <=0;
     }
   },
   data() {
     return {
       started: false,
       baseHealth: 100,
-      playerHealth: 10,
-      monsterHealth: 20,
-      log: [
-      ]
+      playerHealth: 100,
+      monsterHealth: 100,
+      log: []
     }
   },
   methods: {
@@ -40,7 +45,7 @@ new Vue({
 
     attack() {
 
-      const playerDamage = this.calculateDamageFromAttack(10);
+      const playerDamage = this.calculateDamageFromAttack(7);
       const monsterDamage = this.calculateDamageFromAttack(10);
       const player = this.createAttackMessage('Jogador', 'Monstro', playerDamage);
       const monster = this.createAttackMessage('Monstro', 'Jogador', monsterDamage);
@@ -52,9 +57,7 @@ new Vue({
       const currentMonsterHealth = this.monsterHealth -= playerDamage;
       this.monsterHealth = currentMonsterHealth < 0 ? 0 : currentMonsterHealth;
 
-
       this.log.push({player, monster});
-
     }
   }
 });

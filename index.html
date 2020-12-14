@@ -20,7 +20,6 @@
      </div>
      <div class="jogador">
 
-
       <h1>Monstro</h1>
       <div class="barra" :style="maxHealth">
         <div class="vida" :style="currentMonsterHealth"></div>
@@ -28,27 +27,32 @@
       <span>{{monsterHealth}}%</span>
     </div>
    </header>
-   <div 
-    v-if="!started"
-    @click="start" 
+
+   <section v-show="finished" class="section result">
+      <h1 v-if="vitoria" class="vitoria">Você ganhou! :)</h1>
+      <h1 v-else class="derrota">Você perdeu! :(</h1>
+   </section>
+   <section 
+    v-if="!started || finished"
     class="section controls">
-    <button class="start">INICIAR JOGO</button>
-   </div>
-   <div v-else class="section controls">
+    <button 
+    @click="start" 
+    class="start">INICIAR JOGO</button>
+   </section>
+   <section v-else class="section controls">
       <button @click="attack" class='attack'>ATAQUE</button>
       <button class='special-attack'>ATAQUE ESPECIAL</button>
       <button class='heal'>CURAR</button>
       <button
       @click="started = !started" 
       class='resign'>DESISTIR</button>
-   </div>
+   </section>
 
    <section v-show="log.length > 0" class='section log'>
      <div v-for="(message, index) in log" :key="index" class="actions">
        <p class='monster-action'>{{message.monster}}</p>
        <p class='player-action'>{{message.player}}</p>
      </div>
-
    </section>
 
   </div>
