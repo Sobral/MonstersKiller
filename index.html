@@ -41,7 +41,7 @@
    </section>
    <section v-else class="section controls">
       <button @click="attack" class='attack'>ATAQUE</button>
-      <button class='special-attack'>ATAQUE ESPECIAL</button>
+      <button @click="specialAttack" class='special-attack'>ATAQUE ESPECIAL</button>
       <button class='heal'>CURAR</button>
       <button
       @click="started = !started" 

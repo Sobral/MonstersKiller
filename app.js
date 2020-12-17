@@ -44,7 +44,6 @@ new Vue({
     },
 
     attack() {
-
       const playerDamage = this.calculateDamageFromAttack(7);
       const monsterDamage = this.calculateDamageFromAttack(10);
       const player = this.createAttackMessage('Jogador', 'Monstro', playerDamage);
@@ -53,6 +52,20 @@ new Vue({
       const currentPlayerHealth = this.playerHealth -= monsterDamage;
       this.playerHealth = currentPlayerHealth < 0 ? 0 : currentPlayerHealth;
 
+      const currentMonsterHealth = this.monsterHealth -= playerDamage;
+      this.monsterHealth = currentMonsterHealth < 0 ? 0 : currentMonsterHealth;
+
+      this.log.push({player, monster});
+    },
+
+    specialAttack() {
+      const playerDamage = this.calculateDamageFromAttack(20);
+      const monsterDamage = this.calculateDamageFromAttack(10);
+      const player = this.createAttackMessage('Jogador', 'Monstro', playerDamage);
+      const monster = this.createAttackMessage('Monstro', 'Jogador', monsterDamage);
+
+      const currentPlayerHealth = this.playerHealth -= monsterDamage;
+      this.playerHealth = currentPlayerHealth < 0 ? 0 : currentPlayerHealth;
 
       const currentMonsterHealth = this.monsterHealth -= playerDamage;
       this.monsterHealth = currentMonsterHealth < 0 ? 0 : currentMonsterHealth;
