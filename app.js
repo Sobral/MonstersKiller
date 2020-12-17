@@ -37,7 +37,9 @@ new Vue({
       const message = points < 1? `${attacker} erra o ataque!` : `${attacker} ataca ${defender.toLowerCase()} com ${points} pontos!`
       return message;
     },
-    
+    createHealMessage(healMessage){
+      return `Jogador se cura em ${healMessage} pontos!`
+    },
     calculateDamageFromAttack(factor) {
       const seed = Date.now()
       return Math.floor((Math.random() * seed) % (factor + 1));
@@ -49,10 +51,10 @@ new Vue({
       const player = this.createAttackMessage('Jogador', 'Monstro', playerDamage);
       const monster = this.createAttackMessage('Monstro', 'Jogador', monsterDamage);
 
-      const currentPlayerHealth = this.playerHealth -= monsterDamage;
+      const currentPlayerHealth = this.playerHealth - monsterDamage;
       this.playerHealth = currentPlayerHealth < 0 ? 0 : currentPlayerHealth;
 
-      const currentMonsterHealth = this.monsterHealth -= playerDamage;
+      const currentMonsterHealth = this.monsterHealth - playerDamage;
       this.monsterHealth = currentMonsterHealth < 0 ? 0 : currentMonsterHealth;
 
       this.log.push({player, monster});
@@ -64,12 +66,29 @@ new Vue({
       const player = this.createAttackMessage('Jogador', 'Monstro', playerDamage);
       const monster = this.createAttackMessage('Monstro', 'Jogador', monsterDamage);
 
-      const currentPlayerHealth = this.playerHealth -= monsterDamage;
+      const currentPlayerHealth = this.playerHealth - monsterDamage;
       this.playerHealth = currentPlayerHealth < 0 ? 0 : currentPlayerHealth;
 
-      const currentMonsterHealth = this.monsterHealth -= playerDamage;
+      const currentMonsterHealth = this.monsterHealth - playerDamage;
       this.monsterHealth = currentMonsterHealth < 0 ? 0 : currentMonsterHealth;
 
+      this.log.push({player, monster});
+    },
+    heal() {
+      let player = 'Tentativa de cura fracassou!'
+      const monsterDamage = this.calculateDamageFromAttack(10);
+      const monster = this.createAttackMessage('Monstro', 'Jogador', monsterDamage);
+      
+      let currentPlayerHealth = this.playerHealth - monsterDamage;
+      this.playerHealth = currentPlayerHealth < 0 ? 0 : currentPlayerHealth;
+      
+      if(!this.finished) {
+        const playerHeal = this.calculateDamageFromAttack(10) + 1;
+        currentPlayerHealth = this.playerHealth + playerHeal;
+        this.playerHealth = currentPlayerHealth > 100 ? 100 : currentPlayerHealth;
+        player = this.createHealMessage(playerHeal);
+      }
+      console.log(player, monster)
       this.log.push({player, monster});
     }
   }
